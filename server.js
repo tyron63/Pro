@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 
 // DB config
 const connection_url =
-  "mongodb+srv://admin:qIvwcdVoLpDXXfDR@fp.uk7k5.mongodb.net/FinalProject?retryWrites=true&w=majority";
+  "mongodb+srv://admin:6ZeRo2001@fp.uk7k5.mongodb.net/DB?retryWrites=true&w=majority";
 
 mongoose.connect(connection_url, {
   useCreateIndex: true,
@@ -27,7 +27,7 @@ app.get("/", (req, res) => res.status(200).send("Hello World"));
 app.post("/messages/new", (req, res) => {
   const dbMessage = req.body;
 
-  Messages.create(dbMessage, (ree, data) => {
+  Messages.create(dbMessage, (err, data) => {
     if (err) {
       res.status(500).send(err);
     } else {
